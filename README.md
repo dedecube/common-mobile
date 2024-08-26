@@ -1,13 +1,83 @@
-# Common Mobile
+# Dedecube - Common mobile
 
-`common_mobile` is a Dart package that provides a set of utilities, extensions, and components to streamline the development of mobile applications using Flutter. This package includes commonly used extensions on various Dart and Flutter classes, along with utility functions and widgets that simplify your code and enhance productivity.
+`common_mobile` is a Dart package designed to provide a collection of utility extensions, widgets, and functions to enhance and simplify Flutter development.
 
 ## Features
 
-- **Layout Components**: Widgets for layout management, padding, and safe areas.
-- **Extensions**: Useful extensions for `BuildContext`, `Iterable`, `List`, `int`, `num`, `String`, and `Widget`.
-- **Hooks**: A hook for managing loading overlays in Flutter applications.
-- **Utilities**: Helper functions for color conversion and partitioning iterables.
+This package includes the following features:
+
+### 1. Layout Components
+
+- **DedeAlign**: A set of widgets to control alignment within a parent widget.
+- **DedePadding**: A set of widgets to apply padding to other widgets.
+- **DedeSafeSpace**: A set of widgets to manage safe spaces (e.g., status bar, navigation bar) in your layout.
+- **DedeSafe**: A wrapper to easily manage the safe areas of your layout.
+- **DedeSpace**: A utility to add space between widgets.
+
+### 2. Extensions
+
+#### **BuildContext Extensions**
+- **ShortcutsOnBuildContextExtension**: Provides shortcuts for accessing common `BuildContext` properties.
+  - `themeData`: Shortcut for `Theme.of(context)`.
+  - `mediaQuery`: Shortcut for `MediaQuery.of(context)`.
+  - `safe`: Shortcut for accessing safe area insets.
+  - `scaffold`: Shortcut for accessing the `ScaffoldState` from the context.
+  
+- **UnfocusOnBuildContextExtension**: Provides a method to unfocus the current focus node.
+  - `unfocus()`: Unfocus the current focus node.
+
+#### **Iterable Extensions**
+- **PartitionOnIterableExtension**: Partitions elements of an `Iterable` into smaller lists of a specified size.
+  - `partition(int size)`: Partitions elements into lists of the specified size.
+
+#### **List Extensions**
+- **SeparateOnListExtension**: Inserts a separator between each element in a list.
+  - `separate(T separator)`: Returns a new list with separators between elements.
+
+#### **Num Extensions**
+- **DurationOnIntExtension**: Easily create `Duration` objects from integers.
+  - `microseconds`, `milliseconds`, `seconds`, `minutes`, `hours`, `days`, `weeks`, `months`, `years`: Methods to create `Duration` objects.
+
+- **InvertedIndexOnIntExtension**: Calculates the inverted index of an integer.
+  - `invertedIndex(int n)`: Returns the inverted index.
+
+- **ModuloLessThanOnNumExtension**: Performs a modulo operation ensuring the result is always less than the divisor.
+  - `moduloLessThan(num divisor)`: Returns the modulo of the number with the given divisor.
+
+- **RangeOnNumExtension**: Maps a number from one range to another.
+  - `mapToRangeFrom((double toMin, double toMax), [(double fromMin, double fromMax)])`: Maps a value from one range to another.
+
+#### **String Extensions**
+- **ToColorOnStringExtension**: Converts a hex string to a `Color` object.
+  - `toColor({String alphaChannel = 'FF'})`: Converts a hex string to a `Color`.
+
+#### **Widget Extensions**
+- **AlignOnWidgetExtension**: Provides methods to align widgets within their parent.
+  - `alignBottomCenter()`, `alignBottomLeft()`, `alignBottomRight()`, `alignCenter()`, `alignCenterLeft()`, `alignCenterRight()`, `alignTopCenter()`, `alignTopLeft()`, `alignTopRight()`: Aligns the widget within its parent.
+
+- **PaddingOnWidgetExtension**: Provides methods to apply padding to widgets.
+  - `withPadding(...)`, `withAllPadding(...)`, `withTopPadding(...)`, `withBottomPadding(...)`, `withLeftPadding(...)`, `withRightPadding(...)`, `withHorizontalPadding(...)`, `withVerticalPadding(...)`: Adds padding to the widget.
+
+- **SafeAreaOnWidgetExtension**: Wraps the widget with `SafeArea` to respect safe area insets.
+  - `withSafeArea(...)`, `withSafeAreaNone()`, `withSafeAreaTop()`, `withSafeAreaBottom()`, `withSafeAreaLeft()`, `withSafeAreaRight()`, `withSafeAreaVertical()`, `withSafeAreaHorizontal()`, `withSafeAreaAll()`: Wraps the widget with `SafeArea`.
+
+- **BorderRadiusOnWidgetExtension**: Adds circular border radius to a widget.
+  - `withCircularBorderRadius(double radius)`: Wraps the widget with a `Container` that has a circular border radius.
+
+### 3. Hooks
+
+- **Loading Overlay Hook**:
+  - **useLoadingOverlay**: A hook to manage loading overlay in your Flutter application.
+  - **LoadingOverlay**: A widget that displays a loading overlay.
+
+### 4. Utilities
+
+- **Color Utilities**:
+  - `hexToColor(String hexString, {String alphaChannel = 'FF'})`: Converts a hex color string to a `Color`.
+
+- **Partition Utilities**:
+  - `PartitionIterator`: An iterator to iterate over partitions of a list.
+  - `Partition`: A utility class to partition an iterable into smaller lists.
 
 ## Installation
 
@@ -26,97 +96,28 @@ Then, run `flutter pub get` in your terminal.
 
 ## Usage
 
-### Layout Components
-
-- **`DedeAlign`**: Align widgets within a parent widget.
-- **`DedePadding`**: Add padding to widgets.
-- **`DedeSafeSpace`**: Manage safe areas with easy-to-use widgets.
-
-### Extensions
-
-#### `BuildContext` Extensions
-
-- **`unfocus`**: Unfocuses the current focus node.
-- **`shortcutsOnBuildContext`**: Quick access to `ThemeData`, `MediaQuery`, `Scaffold`, and safe area insets.
+You can import the package and use the provided utilities as follows:
 
 ```dart
-// Usage
-context.unfocus();
-ThemeData theme = context.themeData;
-```
+import 'package:common_mobile/common_mobile.dart';
 
-#### `Iterable` Extensions
+// Example: Using an extension to align a widget
+Widget myWidget = Container().alignCenter();
 
-- **`partition`**: Partitions an iterable into chunks of a specified size.
-
-```dart
-final numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Example: Partitioning a list
+final numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 final partitioned = numbers.partition(3);
-print(partitioned); // [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+print(partitioned); // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 ```
-
-#### `List` Extensions
-
-- **`separate`**: Inserts a separator between elements of a list.
-
-#### `int` Extensions
-
-- **`duration`**: Converts an `int` to a `Duration` object.
-- **`invertedIndex`**: Calculates the inverted index.
-- **`moduloLessThan`**: Performs modulo operation with a divisor.
-
-#### `num` Extensions
-
-- **`mapToRangeFrom`**: Maps a number from one range to another.
-
-#### `String` Extensions
-
-- **`toColor`**: Converts a hex string to a `Color`.
-
-```dart
-Color color = '#FF5733'.toColor();
-```
-
-#### `Widget` Extensions
-
-- **`withPadding`**: Adds padding to a widget.
-- **`withSafeArea`**: Wraps a widget in a `SafeArea`.
-- **`withCircularBorderRadius`**: Adds a circular border radius to a widget.
-
-### Hooks
-
-#### `useLoadingOverlay`
-
-- **`useLoadingOverlay`**: A hook to manage and display loading overlays in your Flutter application.
-
-```dart
-final overlay = useLoadingOverlay();
-overlay.show();
-overlay.hide();
-```
-
-### Utilities
-
-#### `hexToColor`
-
-- **`hexToColor`**: Converts a hex string to a `Color`.
-
-```dart
-Color color = hexToColor('#FF5733');
-```
-
-#### `Partition`
-
-- **`Partition`**: A utility class to partition an iterable into lists of a specified size.
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on GitHub if you have suggestions or improvements.
+Contributions are welcome! Please feel free to submit a pull request or open an issue.
 
 ## License
 
-This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+This package is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ---
 
-This `README.md` provides a structured and detailed overview of your Dart package, covering installation, usage, and key features. You can customize it further based on your specific needs or additional features in your package.
+This documentation covers all classes, extensions, and methods provided by your Dart package.
