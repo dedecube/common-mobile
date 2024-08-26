@@ -72,6 +72,8 @@ This package includes the following features:
 
 - **useWireframeInputDecoration**: A hook to create wireframe-style `InputDecoration` objects.
 
+- **useWireframeTextFieldTextStyle**: A hook to create wireframe-style `TextStyle` for TextField objects.
+
 ### 4. Utilities
 
 - **Color Utilities**:
