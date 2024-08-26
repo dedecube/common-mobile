@@ -8,6 +8,7 @@ export './src/components/layout/dede_safe.dart';
 export './src/components/layout/dede_space.dart';
 export './src/extensions/build_context/shortcuts_on_build_context_extension.dart';
 export './src/extensions/build_context/unfocus_on_build_context_extension.dart';
+export './src/extensions/iterable/partition_on_iterable_extension.dart';
 export './src/extensions/list/separate_on_list_extension.dart';
 export './src/extensions/num/int/duration_on_int_extension.dart';
 export './src/extensions/num/int/inverted_index_on_int_extension.dart';
@@ -21,4 +22,6 @@ export './src/extensions/widget/safe_area_on_widget_extension.dart';
 export './src/hooks/use_loading_overlay/loading_overlay.dart';
 export './src/hooks/use_loading_overlay/use_loading_overlay.dart';
 export './src/utils/color/hex_to_color.dart';
+export './src/utils/partition/partition_iterator.dart';
+export './src/utils/partition/partition.dart';
 // @endindex
