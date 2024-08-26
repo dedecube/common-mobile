@@ -70,6 +70,8 @@ This package includes the following features:
   - **useLoadingOverlay**: A hook to manage loading overlay in your Flutter application.
   - **LoadingOverlay**: A widget that displays a loading overlay.
 
+- **useWireframeInputDecoration**: A hook to create wireframe-style `InputDecoration` objects.
+
 ### 4. Utilities
 
 - **Color Utilities**:
@@ -117,7 +119,3 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 
 This package is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-This documentation covers all classes, extensions, and methods provided by your Dart package.

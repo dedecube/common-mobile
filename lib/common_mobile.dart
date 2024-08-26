@@ -21,6 +21,7 @@ export './src/extensions/widget/padding_on_widget_extension.dart';
 export './src/extensions/widget/safe_area_on_widget_extension.dart';
 export './src/hooks/use_loading_overlay/loading_overlay.dart';
 export './src/hooks/use_loading_overlay/use_loading_overlay.dart';
+export './src/hooks/use_wireframe_input_decoration/use_wireframe_input_decoration.dart';
 export './src/utils/color/hex_to_color.dart';
 export './src/utils/partition/partition_iterator.dart';
 export './src/utils/partition/partition.dart';
